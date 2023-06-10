@@ -6,8 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="script-src 'self' 'unsafe-inline';"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.grammarly.com; style-src 'self' 'unsafe-inline'; img-src data: https://*.grammarly.com; connect-src https://*.grammarly.com https://*.grammarly.io wss://*.grammarly.com"
     />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://js.grammarly.com; style-src 'unsafe-inline'; img-src data: https://*.grammarly.com; connect-src * 'unsafe-inline'"
+    />
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline';"
+    /> -->
     <title>My Electron App</title>
   </head>
   <body>
@@ -17,6 +25,16 @@
     <button type="button" id="btn1">Open a File</button>
     File path: <strong id="filePath"></strong>
     <h1>Current value: <strong id="counter">0</strong></h1>
+    <h1>Grammerly sdk</h1>
+    <grammarly-editor-plugin
+      config.oauthRedirectUri="example://grammarly-auth/"
+    >
+      <textarea id="review" name="review" rows="4" cols="50"></textarea>
+      <p></p>
+    </grammarly-editor-plugin>
+    <div id="outputContainer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@grammarly/editor-sdk@2.5.1?clientId=client_CAsxR7Djxg9EiT9VCyE3uP"></script>
+
     <script src="./renderer.js"></script>
   </body>
 </html>

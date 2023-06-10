@@ -21,3 +21,22 @@ window.electronAPI.handleCounter((event, value) => {
   const newValue = oldValue + value;
   counter.innerText = newValue;
 });
+
+// window.electronAPI.grammerExt((event, value) => {
+//   const Grammerly = value;
+// });
+
+// Extension add-on
+// window.addEventListener("DOMContentLoaded",()=>{
+//   const textarea= document.getElementById("review")
+
+//   textarea.addEventListener("input",()=>{
+
+//   })
+// })
+
+Grammarly.init().then((grammarly) => {
+  window.electronAPI.registerGrammarlyAuthCallback((url) => {
+    grammarly.handleOAuthCallback(url);
+  });
+});
