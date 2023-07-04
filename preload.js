@@ -9,4 +9,6 @@ contextBridge.exposeInMainWorld("electronAPI", {
       cb(url);
     });
   },
+  getSources: () => ipcRenderer.invoke("get-sources"),
+  message: () => ipcRenderer.invoke("dialog:message"),
 });

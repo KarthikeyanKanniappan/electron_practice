@@ -17,6 +17,11 @@
       content="script-src 'self' 'unsafe-inline';"
     /> -->
     <title>My Electron App</title>
+    <style>
+      #webview {
+        height: 400px;
+      }
+    </style>
   </head>
   <body>
     Title: <input id="title" />
@@ -32,9 +37,31 @@
       <textarea id="review" name="review" rows="4" cols="50"></textarea>
       <p></p>
     </grammarly-editor-plugin>
+    <grammarly-editor-plugin
+      config.oauthRedirectUri="example://grammarly-auth/"
+    >
+      <textarea id="review" name="review" rows="4" cols="50"></textarea>
+      <p></p>
+    </grammarly-editor-plugin>
     <div id="outputContainer"></div>
     <script src="https://cdn.jsdelivr.net/npm/@grammarly/editor-sdk@2.5.1?clientId=client_CAsxR7Djxg9EiT9VCyE3uP"></script>
+    <!-- message -->
+    <h1>Send message</h1>
+    <button id="btn3">Click-Button to pop a message</button>
+    <h1>Webview</h1>
+    <webview id="webview" src="https://www.youtube.com">
+      <div class="loading"></div
+    ></webview>
+    <h1>Iframe</h1>
+    <iframe
+      src="https://github.com/KarthikeyanKanniappan"
+      height="300"
+    ></iframe>
+    <h1>Video</h1>
 
+    <video width="750" height="500" controls>
+      <source src="" type="video/mp4" />
+    </video>
     <script src="./renderer.js"></script>
   </body>
 </html>
